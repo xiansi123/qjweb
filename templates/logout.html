@@ -1,0 +1,19 @@
+{% extends 'base.html' %}T
+{% block title %}
+    登出
+{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block side %}
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('login')}}">登录</a></li>
+        <li><a href="{{ url_for('register') }}">注册</a></li>
+    </ul>
+{% endblock %}
+
+{% block main %}
+    已经登出
+{% endblock %}

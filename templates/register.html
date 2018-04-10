@@ -1,0 +1,25 @@
+{% extends 'base.html' %}T
+{% block title %}
+    注册
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/register.css') }}">
+{% endblock %}
+
+{% block side %}
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('login')}}">登录</a></li>
+        <li><a href="{{ url_for('register') }}">注册</a></li>
+    </ul>
+{% endblock %}
+
+{% block main %}
+    <form action=""method="POST">
+        <div><input type="text" placeholder="手机号码" name="tele"></div>
+        <div><input type="text" placeholder="用户名" name="username"></div>
+        <div><input type="password" placeholder="密码" name="password"></div>
+        <div><input type="password" placeholder="确认密码" name="password1"></div>
+        <div> <button type="submit"class="btn btn-primary" >注册</button></div>
+    </form>
+{% endblock %}

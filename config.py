@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+import os
+DEBUG=True
+#设置 盐 为24位随机数
+SECRETT_KEY=os.urandom(24)
+# HOSTNAME='127.0.0.1'
+# PORT = '3306'
+# DATABASE='myblog'
+# USERNAME='root'
+# PASSWORD='mysql123456'
+# DB_URL='mysql+msqldb://{}:{}@{}:{}/{}'.format(USERNAME,PASSWORD,HOSTNAME,PORT,DATABASE)
+#
+# SQLALCHEMY_DATABASE_URL=DB_URL
+# SQLALCHEMY_COMMIT_ON_TEARDOWN=False
+# SQLALCHEMY_TRACK_MODIFICATIONS = True

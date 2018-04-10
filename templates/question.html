@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}首页{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block side %}
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('setting')}}">设置</a></li>
+        <li><a href="{{ url_for('logout') }}">登出</a></li>
+    </ul>
+{% endblock %}
+
+{% block main %}
+    <form action="" method="POST">
+        <div class="form-container">
+            <div class="form-group">
+                <input type="text" class="form-control" name="title">
+            </div>
+            <div class="form-group">
+                <textarea name="content" cols="30" rows="10" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">发布</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
