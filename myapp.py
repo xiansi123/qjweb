@@ -61,7 +61,9 @@ def login():
     else:
 
         username=request.form.get('username')
+        print username
         password = request.form.get('password')
+        print password
         user=User.query.filter(User.username==username,User.password==password).first()
         if user:
             #login_user(user)
@@ -72,7 +74,7 @@ def login():
             session.pernanent=True
             return redirect(url_for('index'))
         else:
-            return u'用户名或密码错误'
+            return u'用户名或密码错误login'
 @app.route('/register/',methods=['GET','POST'])
 def register():
     if request.method=='GET':
@@ -123,7 +125,7 @@ def personal():
         if user_state==1: #在校生
             info=Stu.query.filter(Stu.user_id==user_id).first()
             if info:
-                re_json['number']=info.number
+                re_json['no']=info.no
                 re_json['name'] = info.name
                 re_json['school'] = info.school
                 re_json['sex'] = info.sex
@@ -215,9 +217,27 @@ def suggestion():
                 for j in jobs:
                     suggest_list.append(j.name)
         re_json['suggest_list']=suggest_list
-    return jsonify(re_json)
-    #return render_template('suggestion.html',re_json=re_json)
+    #return jsonify(re_json)
+    return render_template('suggestion.html', re_json=re_json)
 
+@app.route('/myGoal/',methods=['GET','POST'])
+@longin_required
+def myGoal():
+    if request.method == 'GET':
+        # user_id = session.get('user_id')
+        # intention = session.get('intention')
+        # if not intention:
+        return render_template('myGoal.html')
+
+@app.route('/selectMygoal/',methods=['POST'])
+@longin_required
+def selectMygoal():
+    if request.method == 'POST':
+        data = json.loads(request.get_data())
+        user_id = session.get('user_id')
+        user=User.query.filter(User.id==user_id).first()
+        user.intention=data['intention']
+    return render_template('suggestion1.html')
 
 
 @app.route('/test/')

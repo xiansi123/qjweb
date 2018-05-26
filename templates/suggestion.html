@@ -1,18 +1,130 @@
-{% extends 'base.html' %}
-{% block title %}前锦建议{% endblock %}
-
-{% block head %}
-
-{% endblock %}
-
-{% block side %}
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{url_for('setting')}}">设置</a></li>
-        <li><a href="{{ url_for('logout') }}">登出</a></li>
-    </ul>
-{% endblock %}
-
-
-{% block main %}
-    Hello,{{ re_json['suggest_list']['name'] }}
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>前锦-前锦建议</title>
+        <link rel="stylesheet" href="../static/css/usual.css">
+        <link rel="stylesheet" href="../static/css/nav.css">
+        <link rel="stylesheet" href="../static/css/suggestion.css">
+    </head>
+    <body>
+        <nav id="nav">
+        <div id="container">
+        <span>
+        <div id="icon"><a href="index.html">前锦</a> </div>
+        <ul id="menu">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="myGoal.html">个人中心</a>
+                <ul>
+                    <li><a href="myGoal.html">我的目标</a></li>
+                    <li><a href="personal.html">个人信息</a></li>
+                </ul>
+            </li>
+            <li class="selected"><a href="suggestion.html">前锦建议</a></li>
+            <li><a href="setting.html">设置</a></li>
+            <li><a href="login.html">退出</a></li>
+            <li><a href="#">注册</a></li>
+        </ul>
+        </span>
+        </div>
+        </nav>
+        
+        <div id="adBar"></div>
+        
+        <!--左侧边栏-->
+            <aside role="presentation" id="personal-msg-box" class="float-left body-msg">
+                <div id="personal-msg">
+                    <div id="personal-msg-card">
+                        <div id="identify">
+                            <div id="headBar">
+                            <!--背景条-->
+                            </div>
+                            <a id="identify-headPic"><img id="headPic" src="images/bear.jpg"></a><br>
+                            <a id="identify-welcome" class="bold-font" href="personal.html">孟小峰</a>
+                            <h4>欢迎使用前锦</h4>
+                        </div>
+                    </div>
+                    <div id="personal-msg-choice">
+                        <h4>我的目标</h4>
+                        <p id="personal-msg-mychoice">就业</p>
+                    </div>
+                    
+                </div>
+            </aside>
+        
+        <!--人脉推荐-->
+        <div id="people-recommend">
+            <div id="people-recommend-title">
+                <p>为你推荐的人脉</p>
+            </div>
+            <div class="people-recommend-card">
+                <img src="images/humanPic.jpg">
+                <button class="people-recommend-follow-btn">关注</button>
+                <p class="people-recommend-msg-name">韩梅梅</p>
+                <br>
+                <p class="people-recommend-msg-sex">女</p>
+                <p class="people-recommend-msg-school">西南大学</p>
+                <p class="people-recommend-msg-major">计算机科学与技术</p>
+                <br>
+                <p class="people-recommend-msg-choice-q">她的选择 :</p>
+                <p class="people-recommend-msg-choice-a">就业</p>
+            </div>
+            <div class="people-recommend-card">
+                <img src="images/humanPic2.jpg">
+                <button class="people-recommend-follow-btn">关注</button>
+                <p class="people-recommend-msg-name">陈可乐</p>
+                <br>
+                <p class="people-recommend-msg-sex">女</p>
+                <p class="people-recommend-msg-school">东南大学</p>
+                <p class="people-recommend-msg-major">计算机科学与技术</p>
+                <br>
+                <p class="people-recommend-msg-choice-q">她的选择 :</p>
+                <p class="people-recommend-msg-choice-a">就业</p>
+            </div>
+            <div class="people-recommend-card">
+                <img src="images/humanPic3.jpg">
+                <button class="people-recommend-follow-btn">关注</button>
+                <p class="people-recommend-msg-name">李梦莹</p>
+                <br>
+                <p class="people-recommend-msg-sex">女</p>
+                <p class="people-recommend-msg-school">中山大学</p>
+                <p class="people-recommend-msg-major">计算机科学与技术</p>
+                <br>
+                <p class="people-recommend-msg-choice-q">她的选择 :</p>
+                <p class="people-recommend-msg-choice-a">就业</p>
+            </div>
+            <div class="people-recommend-card">
+                <img src="images/humanPic4.jpg">
+                <button class="people-recommend-follow-btn">关注</button>
+                <p class="people-recommend-msg-name">张二山</p>
+                <br>
+                <p class="people-recommend-msg-sex">男</p>
+                <p class="people-recommend-msg-school">西南大学</p>
+                <p class="people-recommend-msg-major">计算机科学与技术</p>
+                <br>
+                <p class="people-recommend-msg-choice-q">他的选择 :</p>
+                <p class="people-recommend-msg-choice-a">就业</p>
+            </div>
+            <div class="people-recommend-card">
+                <img src="images/humanPic5.jpg">
+                <button class="people-recommend-follow-btn">关注</button>
+                <p class="people-recommend-msg-name">刘佳佳</p>
+                <br>
+                <p class="people-recommend-msg-sex">女</p>
+                <p class="people-recommend-msg-school">西南大学</p>
+                <p class="people-recommend-msg-major">计算机科学与技术</p>
+                <br>
+                <p class="people-recommend-msg-choice-q">她的选择 :</p>
+                <p class="people-recommend-msg-choice-a">就业</p>
+            </div>
+        
+        </div>
+        
+        <!--相关信息：爬虫-->
+        <iframe id="relative-msg" src="https://www.shixiseng.com/">
+        
+        </iframe>
+        
+        
+    </body>
+</html>

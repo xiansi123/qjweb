@@ -33,7 +33,7 @@ class Stu(db.Model):
     __tablename__='stu'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    number = db.Column(db.String(16), nullable=False)
+    no = db.Column(db.String(16), nullable=False)
     school=db.Column(db.String(16))
     name = db.Column(db.String(16))
     sex = db.Column(db.String(16))
@@ -42,7 +42,7 @@ class Stu(db.Model):
     depart = db.Column(db.String(16))
     term = db.Column(db.String(16))#学期
     others = db.Column(db.Text)
-
+#传递函数依赖
 class Tea(db.Model):
     __tablename__='tea'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

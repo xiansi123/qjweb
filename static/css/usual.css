@@ -1,0 +1,33 @@
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", helvetica, arial; 
+    background-image: url(images/wenli.png);
+}
+
+div {
+    display: block;
+}
+
+a:visited {
+    color: #000;
+}
+
+button {
+    background: 0 0;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.bold-font {
+    font-weight: 700;
+}
+
+.small-font {
+    font-size: 14px;
+}

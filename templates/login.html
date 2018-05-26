@@ -1,22 +1,46 @@
-{% extends 'base.html' %}T
-{% block title %}
-    登录
-{% endblock %}
-{% block head %}
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
-{% endblock %}
-
-{% block side %}
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{url_for('login')}}">登录</a></li>
-        <li><a href="{{ url_for('register') }}">注册</a></li>
-    </ul>
-{% endblock %}
-
-{% block main %}
-    <form action="" method="POST">
-        <div><input type="text" placeholder="用户名" name="username"></div>
-        <div><input type="password" placeholder="密码" name="password"></div>
-        <div> <button type="submit"class="btn btn-primary" >登录</button></div>
-    </form>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>前锦</title>
+        <link rel="stylesheet" href="../static/css/usual.css">
+        <link rel="stylesheet" href="../static/css/index.css">
+        <link rel="stylesheet" href="../static/css/nav.css">
+        <link rel="stylesheet" href="../static/css/loginWrapper.css">
+        <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+        <script src="../static/js/index.js"></script>
+    </head>
+    <body>
+        <nav id="nav">
+        <div id="container">
+        <span>
+        <div id="icon"><a href="index.html">前锦</a> </div>
+        <ul id="menu">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="myGoal.html">个人中心</a>
+                <ul>
+                    <li><a href="myGoal.html">我的目标</a></li>
+                    <li><a href="personal.html">个人信息</a></li>
+                </ul>
+            </li>
+            <li><a href="suggestion.html">前锦建议</a></li>
+            <li><a href="setting.html">设置</a></li>
+            <li class="selected"><a href="#">登录</a></li>
+            <li><a href="register.html">注册</a></li>
+        </ul>
+        </span>
+        </div>
+        </nav>
+        
+        <div class="login">
+            <h1>登录</h1>
+            <form method="post">
+                <input type="text" id="userName" value="Username" name="username">
+                <input type="password" id="password" value="Password">
+                <input type="text" id="showPassword" value="Password" name="password">
+                <button type="submit" class="loginBtn loginBtn-primary loginBtn-block loginBtn-large">登录</button>
+            </form>
+        </div>
+        
+    </body>
+</html>

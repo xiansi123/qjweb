@@ -1,0 +1,167 @@
+#adBar {
+    padding: 0;
+    margin: 0;
+    max-height: 350px;
+    transition: max-height;
+    width: 100%;
+    box-sizing: content-box;
+    position: absolute;
+    top: 52px;
+    margin-top: 52px;
+}
+
+#personal-body {
+    width: 100%;
+    position: absolute;
+    top: 100px;
+}
+
+#personal-msg-map {
+    position: fixed;
+    float: left;
+    width: 220px;
+    height: 413px;
+    background-color: white;
+    margin-left: 70px;
+    border: 1px solid rgba(0,0,0,.15);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1),
+                0 2px 3px rgba(0,0,0,.2);
+}
+
+#personal-msg-map-title {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    background-color: #f0c9cf;
+}
+
+#personal-msg-map-ul {
+    list-style-type: none;
+}
+
+#personal-msg-map-ul li {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#personal-msg-map-ul li:hover {
+    background-color: #eee;
+}
+
+#personal-msg-map-ul a {
+    text-decoration: none;
+    color: #000;
+}
+
+#personal-msg {
+    background-color: white;
+    width: 780px;
+    position: absolute;
+    left: 350px;
+}
+
+#personal-msg div {
+    position: relative;
+    margin-top: 2px;
+    width: 100%;
+}
+
+#jibenxinxi {
+    height: 130px;
+    padding: 20px;
+}
+
+#jibenxinxi *{
+    display: inline-block;
+}
+
+#jibenxinxi img {
+    width: 80px;
+    height: 80px;
+    border-radius: 49.9%;
+    position: relative;
+    float: left;
+    margin-left: 15px;
+}
+
+#msg-name {
+    margin-left: 30px;
+}
+
+#msg-sex {
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+#msg-location, #msg-birth, #msg-email {
+    margin-left: 5px;
+}
+
+#msg-tel {
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+#jiaoyubeijing {
+    height: 150px;
+}
+
+#jiaoyubeijing-msg {
+    padding-left: 25px;
+    padding-top: 10px;
+    line-height: 1.8;
+}
+
+.personal-msg-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.personal-msg-q {
+    font-weight: 550;
+    color: #333;
+}
+
+
+#jiaoyubeijing span p{
+    display: inline-block;
+}
+
+#msg-school-level {
+    margin-left: 150px;
+}
+
+#msg-grade-level {
+    margin-left: 130px;
+}
+
+#shixijingli {
+    height: 150px;
+}
+
+#xiangmujingli {
+    height: 150px;
+}
+
+#xiaoyuanjingli {
+    height: 150px;
+}
+
+#gerenaihao {
+    height: 150px;
+}
+
+#ziwopingjia {
+    height: 150px;
+}
+
+.borderBottom {
+    border-bottom: 1px solid rgba(0,0,0,.15);
+}
+

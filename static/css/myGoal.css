@@ -1,0 +1,67 @@
+
+#adBar {
+    padding: 0;
+    margin: 0;
+    max-height: 350px;
+    transition: max-height;
+    width: 100%;
+    box-sizing: content-box;
+    position: absolute;
+    top: 52px;
+    margin-top: 52px;
+}
+
+#myGole-body {
+    position: absolute;
+    width: 100%;
+    margin-top: 150px;
+    text-align: center;
+}
+
+.choice {
+    display: inline-block;
+    height: 500px;
+    width: 270px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.15);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#choice-ul li {
+    display: inline-block;
+}
+
+.choice:hover {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1),
+                0 2px 3px rgba(0,0,0,.2);
+}
+
+.choicePic {
+    float: left;
+    margin-bottom: 50px;
+}
+
+.choiceTitle {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.choiceAbout {
+    font-weight: normal;
+    font-size:18px;
+    margin-top: 20px;
+}
+
+#choiceBtn {
+    margin-top: 50px;
+    width: 90px;
+    height: 50px;
+    line-height: 1;
+    border: 2px solid #888;
+    border-radius: 5px;
+    background-color: #f0c9cf;
+    font-size: 16px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1),
+                0 2px 2px rgba(0,0,0,.2);
+}

@@ -1,18 +1,151 @@
-{% extends 'base.html' %}
-{% block title %}首页{% endblock %}
-
-{% block head %}
-
-{% endblock %}
-
-{% block side %}
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{url_for('setting')}}">设置</a></li>
-        <li><a href="{{ url_for('logout') }}">登出</a></li>
-    </ul>
-{% endblock %}
-
-
-{% block main %}
-    Hello,{{ session['user_id']}}
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>前锦</title>
+        <link rel="stylesheet" href="../static/css/usual.css">
+        <link rel="stylesheet" href="../static/css/index.css">
+        <link rel="stylesheet" href="../static/css/nav.css">
+        <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+        <script src="../static/js/index.js"></script>
+    </head>
+    <body>
+        <nav id="nav">
+        <div id="container">
+        <span>
+        <div id="icon"><a href="index.html">前锦</a> </div>
+        <ul id="menu">
+            <li class="selected"><a href="#">首页</a></li>
+            <li><a href="myGoal.html">个人中心</a>
+                <ul>
+                    <li><a href="{{ url_for('myGoal') }}">我的目标</a></li>
+                    <li><a href="personal.html">个人信息</a></li>
+                </ul>
+            </li>
+            <li><a href="{{ url_for('suggestion') }}">前锦建议</a></li>
+            <li><a href="setting.html">设置</a></li>
+            <li><a href="login.html">退出</a></li>
+            <li><a href="#">注册</a></li>
+        </ul>
+        </span>
+        </div>
+        </nav>
+        
+        <div id="adBar"></div>
+        
+        <div id="qianjinBody" class="qianjinBody">
+            <!--左侧边栏-->
+            <aside role="presentation" id="personal-msg-box" class="float-left body-msg">
+                <div id="personal-msg">
+                    <div id="personal-msg-card">
+                        <div id="identify">
+                            <div id="headBar">
+                            <!--背景条-->
+                            </div>
+                            <a href="personal.html" id="identify-headPic"><img id="headPic" src="images/bear.jpg"></a><br>
+                            <a id="identify-welcome" class="bold-font" href="personal.html">孟小峰</a>
+                            <h4>欢迎使用前锦</h4>
+                        </div>
+                        <div id="friends">
+                            <div id="friends-follow-msg">
+                                <ul class="entity-list row">
+                                    <li class="entity-list-item">
+                                        <div id="following" class="entity-item">
+                                            <div id="following-container">
+                                                <button class="widget-route">
+                                                    <span id="following-nums" class="small-font">
+                                                    28</span>
+                                                </button>
+                                                <p class="bold-font small-font">我的关注</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="entity-list-item">
+                                        <div id="followed" class="entity-item">
+                                            <div id="followed-container">
+                                                <button class="widget-route">
+                                                    <span id="followed-nums" class="small-font">
+                                                    28</span>
+                                                </button>
+                                                <p class="bold-font small-font">我的粉丝</p>
+                                            </div>
+                                        </div>
+                                    
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </aside>
+            
+            
+            <!--中间动态栏-->
+            <div role="main" class="core-rail body-msg" id="friends-msg">
+                <div id="my-new-msg">
+                    添加我的新动态
+                </div>
+                <!--添加新动态弹窗 -->
+                <div id="my-new-msg-popup" class="popup popup-hide">
+                    <p>*请选择动态类型：</p>
+                    <input type="radio" name="msg-type" value="xueshujingsai">学术竞赛<br>
+                    <input type="radio" name="msg-type" value="dengjikaoshi">等级考试<br>
+                    <input type="radio" name="msg-type" value="huojiangxuejin">获奖学金<br>
+                    <input type="radio" name="msg-type" value="fabiaolunwen">发表论文<br>
+                    <input type="radio" name="msg-type" value="wanchengxiangmu">完成项目<br>
+                    <p>*请输入名称(例如:六级):</p>
+                    <input type="text" name="new-msg-name"><br>
+                    <p>*请输入动态详情(例如:500分):</p>
+                    <input type="text" name="new-msg-about"><br>
+                    <p>*请输入时间:</p>
+                    <input type="time" name="new-msg-time"><br>
+                    
+                    
+                </div>
+                <div class="friends-msg-card">
+                    <img src="images/ruanyifeng.png">
+                    <button class="friends-msg-btn">...</button>
+                    <div class="friends-unfollow isHidden">
+                        <p>取消关注</p>
+                    </div>
+                    <p class="friends-msg-name">阮一峰</p>
+                    <p class="friends-msg-type">加入前锦</p>
+                    <br>
+                    <p class="friends-msg-time">2018.5.24</p>
+                </div>
+                
+                <div class="friends-msg-card">
+                    <img src="images/bear.jpg">
+                    <button class="friends-msg-btn">...</button>
+                    <div class="friends-unfollow isHidden">
+                        <p>取消关注</p>
+                    </div>
+                    <p class="friends-msg-name">孟小峰</p>
+                    <p class="friends-msg-type">加入前锦</p>
+                    <br>
+                    <p class="friends-msg-time">2018.5.23</p>
+                </div>
+                
+            </div>
+            
+            
+            <!--右侧边栏-->
+            <aside role="presentation" id="about-msg-box" class="body-msg">
+                <div id="about-msg">
+                    <div role="contentinfo" id="about-msg-card">
+                        <ul id="about-ul">
+                            <a href="#"><li>关于</li></a> 
+                            <a href="#"><li>帮助中心</li></a>
+                            <a href="#"><li>隐私政策</li></a> 
+                            <a href="#"><li>广告发布</li></a> 
+                            <a href="#"><li>前锦 © 2018 年</li></a> 
+                        </ul>
+                    </div>
+                
+                </div>
+            </aside>
+        </div>
+    </body>
+</html>

@@ -1,18 +1,127 @@
-{% extends 'base.html' %}
-{% block title %}个人中心{% endblock %}
-
-{% block head %}
-
-{% endblock %}
-
-{% block side %}
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{url_for('setting')}}">设置</a></li>
-        <li><a href="{{ url_for('logout') }}">登出</a></li>
-    </ul>
-{% endblock %}
-
-
-{% block main %}
-    Hello,{{ re_json['name'] }}
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>前锦-个人信息</title>
+        <link rel="stylesheet" href="../static/css/usual.css">
+        <link rel="stylesheet" href="../static/css/nav.css">
+        <link rel="stylesheet" href="../static/css/personal.css">
+    </head>
+    <body>
+        <nav id="nav">
+        <div id="container">
+        <span>
+        <div id="icon"><a href="index.html">前锦</a> </div>
+        <ul id="menu">
+            <li><a href="index.html">首页</a></li>
+            <li class="selected"><a href="myGoal.html">个人中心</a>
+                <ul>
+                    <li><a href="myGoal.html">我的目标</a></li>
+                    <li><a href="personal.html">个人信息</a></li>
+                </ul>
+            </li>
+            <li><a href="suggestion.html">前锦建议</a></li>
+            <li><a href="setting.html">设置</a></li>
+            <li><a href="login.html">退出</a></li>
+            <li><a href="register.html">注册</a></li>
+        </ul>
+        </span>
+        </div>
+        </nav>
+        
+        <div id="adBar"></div>
+        
+        <div id="personal-body">
+            <aside id="personal-msg-map">
+                <div id="personal-msg-map-title">
+                    <p>个人信息</p>
+                </div>
+                <div id="personal-msg-map-container">
+                    <ul id="personal-msg-map-ul">
+                        <a href="#jibenxinxi"><li>基本信息</li></a>
+                        <a href="#jiaoyubeijing"><li>教育背景</li></a>
+                        <a href="#"><li>实习经历</li></a>
+                        <a href="#"><li>项目经历</li></a>
+                        <a href="#"><li>校园经历</li></a>
+                        <a href="#"><li>个人爱好</li></a>
+                        <a href="#"><li>自我评价</li></a>
+                    </ul>
+                </div>
+            
+            </aside>
+            
+            <div id="personal-msg">
+                <div id="jibenxinxi" class="borderBottom">
+                    <img src="images/bear.jpg">
+                    <h3 id="msg-name">孟小峰</h3>
+                    <br>
+                    <p id="msg-sex">男</p>
+                    <p id="msg-location">重庆</p>
+                    <p id="msg-birth">1997-06-15</p>
+                    <br>
+                    <p id="msg-tel">15312345678</p>
+                    <p id="msg-email">12345678@qq.com</p>
+                </div>
+                <div id="jiaoyubeijing" class="borderBottom">
+                    <p id="jiaoyubeijing-title" class="personal-msg-title">教育背景</p>
+                    <div id="jiaoyubeijing-msg">
+                    <span id="msg-school">
+                    <p class="personal-msg-q">学校：</p>
+                    <p class="personal-msg-a">西南大学</p>
+                    </span>
+                    <br>
+                    <span id="msg-school-time">
+                    <p class="personal-msg-q">在校时间：</p>
+                    <p class="personal-msg-a">2015-2019</p>
+                    </span>
+                    <span id="msg-school-level">
+                    <p class="personal-msg-q">学历：</p>
+                    <p class="personal-msg-a">本科</p>
+                    </span>
+                    <br>
+                    <span id="msg-major">
+                    <p class="personal-msg-q">专业：</p>
+                    <p class="personal-msg-a">计算机科学与技术</p>
+                    </span>
+                    <span id="msg-grade-level">
+                    <p class="personal-msg-q">成绩排名：</p>
+                    <p class="personal-msg-a">前30%</p>
+                    </span>
+                    
+                    </div>
+                    </div>
+                <div id="shixijingli" class="borderBottom">
+                    <p id="shixijingli-title" class="personal-msg-title">实习经历</p>
+                    <div id="shixijingli-msg">
+                    
+                    </div>
+                </div>
+                <div id="xiangmujingli" class="borderBottom">
+                    <p id="xiangmujingli-title" class="personal-msg-title">项目经历</p>
+                    <div id="xiangmujingli-msg">
+                    
+                    </div>
+                </div>
+                <div id="xiaoyuanjingli" class="borderBottom">
+                    <p id="xiaoyuanjingli-title" class="personal-msg-title">校园经历</p>
+                    <div id="xiaoyuanjingli-msg">
+                    
+                    </div>
+                </div>
+                <div id="gerenaihao" class="borderBottom">
+                    <p id="gerenaihao-title" class="personal-msg-title">个人爱好</p>
+                    <div id="gerenaihao-msg">
+                    
+                    </div>
+                </div>
+                <div id="ziwopingjia" class="borderBottom">
+                    <p id="ziwopingjia-title" class="personal-msg-title">自我评价</p>
+                    <div id="ziwopingjia-msg">
+                    
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </body>
+</html>

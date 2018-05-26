@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 30px;
+    font-family: "Helvetica Neue", helvetica, arial;
+    background-image: url(../images/wenli.png);
+}
+
+/*网页主体*/
+
+.qianjinBody {
+    width: 1128px;
+    box-sizing: content-box;
+    padding: 0 32px;
+    display: block;
+}
+
+#adBar {
+    padding: 0;
+    margin: 0;
+    max-height: 350px;
+    transition: max-height;
+    width: 100%;
+    box-sizing: content-box;
+    position: absolute;
+    top: 52px;
+    margin-top: 52px;
+    z-index: 0;
+}
+
+.body-msg {
+    margin-top: 104px;
+}
+
+/*左侧边栏*/
+
+#personal-msg-box {
+    width: 216px;
+    height: 290px;
+    box-sizing: border-box;
+    position: fixed;
+    margin-bottom: 24px;
+    margin-right: -1px;
+    display: block;
+    margin-left: 40px;
+}
+
+.float-left {
+    float:left;
+}
+
+#personal-msg {
+    width: 216px;
+    height: 295px;
+    background-color: white;
+    border-radius: 2px;
+    margin-top: 0px;
+    vertical-align: baseline;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1),
+                0 2px 3px rgba(0,0,0,.2);
+    transition: box-shadow 83ms;
+
+}
+
+#personal-msg-card {
+    width: 216px;
+    text-align: center;
+    border-radius: 2px;
+    background-clip: padding-box; /*规定背景的绘制区域*/
+    padding: 0;
+}
+
+#identify {
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    padding: 12px 12px 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+#headBar {
+    background-color: #e3b4b8;
+    background-position: center;
+    background-size: 462px;
+    height: 54px;
+    margin: -12px -12px 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+#headPic {
+    width: 62px;
+    height: 62px;
+    border-radius: 49.9%;
+    border: 2px solid #fff;
+    margin: -27px auto 12px;
+    box-shadow: inset 0 1.5px 3px 0 rgba(0,0,0,.15), 0 1.5px 3px 0 rgba(0,0,0,.15);
+    box-sizing: border-box;
+    background-clip: content-box;
+}
+
+#identify-welcome {
+    display: block;
+    text-decoration: none;
+}
+
+#friends {
+    padding: 12px;
+    padding-top: 0;
+}
+
+.entity-item {
+    width: 100%;
+}
+
+.entity-list.row {
+    display: flex;
+    flex-direction: column;
+}
+
+.entity-list .entity-list-item {
+    position: relative;
+    padding: 12px 0;
+}
+
+.entity-list-item:first-of-type {
+    border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+.entity-list-item{
+    list-style-type: none;
+    background-color: #fff;
+    width: 100%;
+}
+
+#following,#followed {
+    width: 100%;
+}
+
+/*右侧边栏*/
+#about-msg-box {
+    width: 312px;
+    height: 150px;
+    box-sizing: border-box;
+    float: left;
+    margin-left: 24px;
+    margin-bottom: 24px;
+    background-color: #fff;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    position: absolute;
+    margin-left: 960px;
+}
+
+#about-msg {
+    height: 147px;
+    width: 310px;
+    margin: 0px auto;
+}
+
+#about-msg-card {
+    margin-top: 16px;
+}
+
+#about-ul {
+    list-style-type: none;
+    margin: 16px auto;
+    line-height: 24px;
+    text-align: center;
+}
+
+#about-ul a {
+    text-decoration: none;
+}
+
+
+/*中间动态栏*/
+.core-rail {
+    box-sizing: border-box;
+    float: left;
+    margin-left: -1px;
+    width: 600px;
+}
+
+#my-new-msg {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0,0,0,.15);
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+#friends-msg {
+    position: relative;
+    float: left;
+    margin-left: 310px;
+    background-color: white;
+    z-index: 2;
+    display: inline-block;;
+}
+
+.friends-msg-card {
+    padding: 15px;
+    width: 100%;
+    height: 115px;
+    border: 1px solid rgba(0,0,0,.15);
+    margin-bottom: 8px;
+}
+
+.friends-msg-card *{
+    position: relative;
+    display: inline-block;
+}
+
+.friends-msg-card img {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    float: left;
+    margin-left: 15px;
+}
+
+.friends-msg-name {
+    margin-left: 30px;
+    font-weight: 700;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.friends-msg-time {
+    margin-top: 5px;
+    margin-left: 30px;
+    color: #888;
+}
+
+.friends-msg-btn {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.friends-unfollow {
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid rgba(0,0,0,.15);
+    position: relative;
+    float: right;
+    margin-top: 25px;
+    margin-right: -60px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.friends-unfollow:hover {
+    background-color: #ddd;
+}
+
+.isHidden {
+    display: none;
+}
+
+.popup-hide {
+    opacity: 1;
+    display: none;
+    transform: scale(1);
+    transition: 0.5s ease all;
+}
