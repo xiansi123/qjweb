@@ -11,19 +11,19 @@
         <nav id="nav">
         <div id="container">
         <span>
-        <div id="icon"><a href="index.html">前锦</a> </div>
+        <div id="icon"><a href="{{ url_for('index') }}">前锦</a> </div>
         <ul id="menu">
-            <li><a href="index.html">首页</a></li>
-            <li class="selected"><a href="myGoal.html">个人中心</a>
+            <li class="selected"><a href="{{ url_for('index') }}">首页</a></li>
+            <li><a href="{{ url_for('myGoal') }}">个人中心</a>
                 <ul>
-                    <li><a href="myGoal.html">我的目标</a></li>
-                    <li><a href="personal.html">个人信息</a></li>
+                    <li><a href="{{ url_for('myGoal') }}">我的目标</a></li>
+                    <li><a href="{{ url_for('personal') }}">个人信息</a></li>
                 </ul>
             </li>
-            <li><a href="suggestion.html">前锦建议</a></li>
-            <li><a href="setting.html">设置</a></li>
-            <li><a href="login.html">退出</a></li>
-            <li><a href="register.html">注册</a></li>
+            <li><a href="{{ url_for('suggestion') }}">前锦建议</a></li>
+            <li><a href="{{ url_for('setting') }}">设置</a></li>
+            <li><a href="{{ url_for('logout') }}">退出</a></li>
+            <li><a href="#">注册</a></li>
         </ul>
         </span>
         </div>
@@ -53,9 +53,9 @@
             <div id="personal-msg">
                 <div id="jibenxinxi" class="borderBottom">
                     <img src="images/bear.jpg">
-                    <h3 id="msg-name">孟小峰</h3>
+                    <h3 id="msg-name">{{ re_data['name'] }}</h3>
                     <br>
-                    <p id="msg-sex">男</p>
+                    <p id="msg-sex">{{ re_data['sex'] }}</p>
                     <p id="msg-location">重庆</p>
                     <p id="msg-birth">1997-06-15</p>
                     <br>
@@ -93,7 +93,6 @@
                 <div id="shixijingli" class="borderBottom">
                     <p id="shixijingli-title" class="personal-msg-title">实习经历</p>
                     <div id="shixijingli-msg">
-                    
                     </div>
                 </div>
                 <div id="xiangmujingli" class="borderBottom">
@@ -105,7 +104,7 @@
                 <div id="xiaoyuanjingli" class="borderBottom">
                     <p id="xiaoyuanjingli-title" class="personal-msg-title">校园经历</p>
                     <div id="xiaoyuanjingli-msg">
-                    
+                        {{ re_data['school_life'] }}
                     </div>
                 </div>
                 <div id="gerenaihao" class="borderBottom">

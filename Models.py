@@ -14,11 +14,23 @@ class User(db.Model):
     state=db.Column(db.Integer,default=1)
     #1表示找导师2表示考研3表示出国4表示工作
     intention=db.Column(db.Integer)
+    first=db.Column(db.Boolean)
 
+class Dynamic(db.Model):
+    __tablename__='dynamic'
+    id=db.Column(db.Integer,primary_key=True,autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    Dynamic_type=db.Column(db.String(10))
+    Dynamic_name=db.Column(db.String(30))
+    Dynamic_content=db.Column(db.Text)
+    Dynamic_time=db.Column(db.String(30))
+    create_time= db.Column(db.DateTime,default=datetime.now())
 class Follow(db.Model):
     __tablename__ = 'follow'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+
     follower=db.Column(db.Integer,db.ForeignKey('user.id'))
+    #被关注的人
     following=db.Column(db.Integer,db.ForeignKey('user.id'))
 
 class Question(db.Model):
@@ -42,6 +54,9 @@ class Stu(db.Model):
     depart = db.Column(db.String(16))
     term = db.Column(db.String(16))#学期
     others = db.Column(db.Text)
+    school_life = db.Column(db.Text)
+    hobby = db.Column(db.Text)
+    self_evaluation = db.Column(db.Text)
 #传递函数依赖
 class Tea(db.Model):
     __tablename__='tea'
@@ -54,6 +69,9 @@ class Tea(db.Model):
     willings=db.Column(db.Text)
     major_in = db.Column(db.Text)
     others = db.Column(db.Text)
+    school_life = db.Column(db.Text)
+    hobby = db.Column(db.Text)
+    self_evaluation = db.Column(db.Text)
 #考研党
 class Post(db.Model):
     __tablename__ = 'post'
@@ -69,6 +87,9 @@ class Post(db.Model):
     grades = db.Column(db.Integer)
     others=db.Column(db.Text)
     advice=db.Column(db.Text)
+    school_life = db.Column(db.Text)
+    hobby = db.Column(db.Text)
+    self_evaluation = db.Column(db.Text)
 #出国党
 class Abroad(db.Model):
     __tablename__ = 'abroad'
@@ -85,6 +106,9 @@ class Abroad(db.Model):
     IELTS=db.Column(db.Integer)#雅思
     advice = db.Column(db.Text)
     others = db.Column(db.Text)
+    school_life=db.Column(db.Text)
+    hobby=db.Column(db.Text)
+    self_evaluation=db.Column(db.Text)
 #工作党
 class Job(db.Model):
     __tablename__ = 'job'
@@ -99,3 +123,6 @@ class Job(db.Model):
     company=db.Column(db.String(20))
     advice = db.Column(db.Text)
     others = db.Column(db.Text)
+    school_life=db.Column(db.Text)
+    hobby=db.Column(db.Text)
+    self_evaluation=db.Column(db.Text)

@@ -11,18 +11,18 @@
         <nav id="nav">
         <div id="container">
         <span>
-        <div id="icon"><a href="index.html">前锦</a> </div>
+        <div id="icon"><a href="{{ url_for('index') }}">前锦</a> </div>
         <ul id="menu">
-            <li><a href="index.html">首页</a></li>
-            <li><a href="myGoal.html">个人中心</a>
+            <li class="selected"><a href="{{ url_for('index') }}">首页</a></li>
+            <li><a href="{{ url_for('myGoal') }}">个人中心</a>
                 <ul>
-                    <li><a href="myGoal.html">我的目标</a></li>
-                    <li><a href="personal.html">个人信息</a></li>
+                    <li><a href="{{ url_for('myGoal') }}">我的目标</a></li>
+                    <li><a href="{{ url_for('personal') }}">个人信息</a></li>
                 </ul>
             </li>
-            <li class="selected"><a href="suggestion.html">前锦建议</a></li>
-            <li><a href="setting.html">设置</a></li>
-            <li><a href="login.html">退出</a></li>
+            <li><a href="{{ url_for('suggestion') }}">前锦建议</a></li>
+            <li><a href="{{ url_for('setting') }}">设置</a></li>
+            <li><a href="{{ url_for('logout') }}">退出</a></li>
             <li><a href="#">注册</a></li>
         </ul>
         </span>
@@ -60,11 +60,11 @@
             <div class="people-recommend-card">
                 <img src="images/humanPic.jpg">
                 <button class="people-recommend-follow-btn">关注</button>
-                <p class="people-recommend-msg-name">韩梅梅</p>
+                <p class="people-recommend-msg-name">{{ re_data["suggest_list"][0]["name"] }}</p>
                 <br>
-                <p class="people-recommend-msg-sex">女</p>
-                <p class="people-recommend-msg-school">西南大学</p>
-                <p class="people-recommend-msg-major">计算机科学与技术</p>
+                <p class="people-recommend-msg-sex">{{ re_data["suggest_list"][0]["sex"] }}</p>
+                <p class="people-recommend-msg-school">{{ re_data["suggest_list"][0]["school"] }}</p>
+                <p class="people-recommend-msg-major">{{ re_data["suggest_list"][0]["major_in"] }}</p>
                 <br>
                 <p class="people-recommend-msg-choice-q">她的选择 :</p>
                 <p class="people-recommend-msg-choice-a">就业</p>
@@ -72,7 +72,7 @@
             <div class="people-recommend-card">
                 <img src="images/humanPic2.jpg">
                 <button class="people-recommend-follow-btn">关注</button>
-                <p class="people-recommend-msg-name">陈可乐</p>
+                <p class="people-recommend-msg-name">{{ re_data["suggest_list"][1]["name"] }}</p>
                 <br>
                 <p class="people-recommend-msg-sex">女</p>
                 <p class="people-recommend-msg-school">东南大学</p>

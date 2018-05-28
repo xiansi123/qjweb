@@ -19,20 +19,63 @@ def index():
     if request.method=='GET':
         re_json={}
         following_list=[]
+        follower_list=[]
         user_id = session.get('user_id')
+
         # follow_rela表示follow表中的元组
+        #查询关注者
         follow_rela = Follow.query.filter(Follow.follower == user_id).all()
         if follow_rela:
             for i in follow_rela:
                 #print i
                 #假定找到的被关注者id都存在
-                followed_user=User.query.filter(User.id==i.following).first()
-                if followed_user:
-                    following_list.append(followed_user.username)
+                following_user=User.query.filter(User.id==i.following).first()
+                if following_user:
+                    following_user_info = {}
+                    following_user_info["name"] = following_user.username
+                    following_user_info["following_id"] = following_user.id
+                    following_list.append(following_user_info)
+
         #print following_list
         re_json['following_list']=following_list
+        #查询粉丝
+        follow_rela1 = Follow.query.filter(Follow.following == user_id).all()
+        if follow_rela1:
+            for i in follow_rela1:
+                # print i
+                # 假定找到的被关注者id都存在
+                follower_user = User.query.filter(User.id == i.follower).first()
+                if follower_user:
+                    follower_user_info = {}
+                    follower_user_info["name"] = follower_user.username
+                    follower_user_info["follower_id"] = follower_user.id
+
+                    follower_list.append(follower_user_info)
+
+        re_json['follower_list'] = follower_list
+
     #return jsonify(re_json)
-    return render_template('index.html',re_json=re_json)
+    return render_template('index.html',re_data=re_json)
+
+@app.route('/dynamic')
+@longin_required
+def dynamic():
+    #data = json.loads(request.get_data())
+    # 或者data = json.loads(request.form.get('data'))
+    #followings_id = data['following_list_id']
+    followings_id={0:1}
+    followings_info=[]
+    #followings_id为{0:id,1:id,}
+    for key,value in followings_id.items():
+        dynamic_info={}
+        dynamic = Dynamic.query.filter(Dynamic.user_id == value).first()
+        dynamic_info["following_id"]=value
+        dynamic_info["Dynamic_type"]=dynamic.Dynamic_type
+        dynamic_info["Dynamic_name"] = dynamic.Dynamic_name
+        dynamic_info["Dynamic_content"] = dynamic.Dynamic_content
+        dynamic_info["Dynamic_time"] = dynamic.Dynamic_time
+        followings_info.append(dynamic_info)
+    return jsonify(followings_info)
 
 @app.route('/question/',methods=['GET','POST'])
 @longin_required
@@ -133,7 +176,9 @@ def personal():
                 re_json['major'] = info.major
                 re_json['depart'] = info.depart
                 re_json['term'] = info.term
-
+                re_json['school_life'] = info.school_life
+                re_json['hobby'] = info.hobby
+                re_json['self_evaluation'] = info.self_evaluation
         elif user_state==2:#研究生
             info=Post.query.filter(Post.user_id==user_id).first()
             if info:
@@ -148,6 +193,9 @@ def personal():
                 re_json['grades'] = info.grades
                 re_json['advice']=info.advice
                 re_json['others'] = info.others
+                re_json['school_life'] = info.school_life
+                re_json['hobby'] = info.hobby
+                re_json['self_evaluation'] = info.self_evaluation
         elif user_state==3:#出国留学生
             info = Abroad.query.filter(Abroad.user_id == user_id).first()
             if info:
@@ -162,6 +210,9 @@ def personal():
                 re_json['IELTS']  = info.IELTS
                 re_json['others'] = info.others
                 re_json['advice'] = info.advice
+                re_json['school_life'] = info.school_life
+                re_json['hobby'] = info.hobby
+                re_json['self_evaluation'] = info.self_evaluation
         elif user_state == 4:  # 工作
             info = Job.query.filter(Job.user_id == user_id).first()
             if info:
@@ -174,6 +225,9 @@ def personal():
                 re_json['age'] = info.age
                 re_json['others'] = info.others
                 re_json['advice'] = info.advice
+                re_json['school_life'] = info.school_life
+                re_json['hobby'] = info.hobby
+                re_json['self_evaluation'] = info.self_evaluation
         else:#老师
             info = Tea.query.filter(Tea.user_id == user_id).first()
             if info:
@@ -184,9 +238,12 @@ def personal():
                 re_json['willings'] = info.willings
                 re_json['major_in'] = info.major_in
                 re_json['others'] = info.others
+                re_json['school_life'] = info.school_life
+                re_json['hobby'] = info.hobby
+                re_json['self_evaluation'] = info.self_evaluation
         #print jsonify(re_json)
     #return jsonify(re_json)
-    return  render_template('personal.html',re_json=re_json)
+    return  render_template('personal.html',re_data=re_json)
 
 @app.route('/suggestion/',methods=['GET','POST'])
 @longin_required
@@ -200,25 +257,56 @@ def suggestion():
             teas=Tea.query.all()
             if teas:
                 for t in teas:
-                    suggest_list.append(t.name)
+                    suggest = {}
+                    suggest["name"]=t.name
+                    #print suggest["name"]
+                    suggest["suggest_id"] = t.user_id
+                    suggest["school"] = t.school
+                    suggest["sex"] = t.sex
+                    suggest["major_in"] = t.major_in
+                    suggest_list.append(suggest)
+                print suggest_list
         elif intention == 2:#考研
             posts = Post.query.all()
             if posts:
                 for p in posts:
-                    suggest_list.append(p.name)
+                    suggest = {}
+                    suggest["name"]=p.name
+                    suggest["suggest_id"] = p.user_id
+                    suggest["sex"] = p.sex
+                    suggest["depart"] = p.depart
+                    suggest["school"] = p.school
+
+                    suggest_list.append(suggest)
+
         elif intention == 3:#出国
             abroads = Abroad.query.all()
             if abroads:
                 for a in abroads:
-                    suggest_list.append(a.name)
+                    suggest = {}
+                    suggest["name"]=a.name
+                    suggest["suggest_id"] = a.user_id
+                    suggest["sex"] = a.sex
+                    suggest["depart"] = a.depart
+                    suggest["school"] = a.school
+                    suggest_list.append(suggest)
+
         else:#intention == 4 找工作
             jobs = Job.query.all()
             if jobs:
                 for j in jobs:
-                    suggest_list.append(j.name)
+                    suggest = {}
+                    suggest["name"]=j.name
+                    suggest["suggest_id"] = j.user_id
+                    suggest["sex"] = j.sex
+                    suggest["depart"] = j.depart
+                    suggest["school"] = j.school
+                    suggest_list.append(suggest)
+
         re_json['suggest_list']=suggest_list
+        #print re_json
     #return jsonify(re_json)
-    return render_template('suggestion.html', re_json=re_json)
+    return render_template('suggestion.html', re_data=re_json)
 
 @app.route('/myGoal/',methods=['GET','POST'])
 @longin_required
@@ -229,16 +317,57 @@ def myGoal():
         # if not intention:
         return render_template('myGoal.html')
 
-@app.route('/selectMygoal/',methods=['POST'])
+@app.route('/selectMygoal/')
 @longin_required
 def selectMygoal():
+    data = json.loads(request.get_data())
+    #或者data = json.loads(request.form.get('data'))
+    user_id = session.get('user_id')
+    user=User.query.filter(User.id==user_id).first()
+    user.intention=data['intention']
+    return render_template('suggestion1.html')
+    # request.method == 'GET':
+    #     return "请选择"
+    # else:
+    #     return "xxx"
+
+@app.route('/unfollow/')
+@longin_required
+def unfollow():
+    if request.method == 'POST':
+        data=json.loads(request.get_data())
+        following_id=data['following_id']
+        try:
+            user = User.query.filter(User.id == following_id).first()
+            db.session.delete(user)
+            db.session.commit()
+            return redirect(url_for('index'))
+            #return "delete ok"
+        except Exception as e:
+            print e
+            flash(u'删除失败')
+            db.session.rollback()
+    else:
+        return "请提交参数"
+
+@app.route('/follow/')
+@longin_required
+def follow():
     if request.method == 'POST':
         data = json.loads(request.get_data())
-        user_id = session.get('user_id')
-        user=User.query.filter(User.id==user_id).first()
-        user.intention=data['intention']
-    return render_template('suggestion1.html')
-
+        following_id = data['follow_id']
+        try:
+            user = User.query.filter(User.id == following_id).first()
+            db.session.delete(user)
+            db.session.commit()
+            return redirect(url_for('index'))
+            # return "delete ok"
+        except Exception as e:
+            print e
+            flash(u'删除失败')
+            db.session.rollback()
+    else:
+        return "请提交参数"
 
 @app.route('/test/')
 def jsonrep():
