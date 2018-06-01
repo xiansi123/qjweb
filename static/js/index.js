@@ -4,6 +4,12 @@ $(document).ready(function() {
     });
     
     $("#my-new-msg").click(function() {
-        
+        $("#my-new-msg-popup").toggleClass("popup-hide");
+    });
+
+    $("#my-new-msg-cancel").click(function() {
+        $("#my-new-msg-popup").toggleClass("popup-hide");
     })
+
+
 });

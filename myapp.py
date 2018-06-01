@@ -21,7 +21,9 @@ def index():
         following_list=[]
         follower_list=[]
         user_id = session.get('user_id')
+        user=User.query.filter(User.id==user_id).first()
 
+        re_json['username'] = user.username
         # follow_rela表示follow表中的元组
         #查询关注者
         follow_rela = Follow.query.filter(Follow.follower == user_id).all()
@@ -35,9 +37,16 @@ def index():
                     following_user_info["name"] = following_user.username
                     following_user_info["following_id"] = following_user.id
                     following_list.append(following_user_info)
+                dynamic_info = {}
+                dynamic = Dynamic.query.filter(Dynamic.user_id == i.following).first()
+
+            re_json['following_num']=len(following_list)
 
         #print following_list
-        re_json['following_list']=following_list
+            re_json['following_list']=following_list
+        else:
+            re_json['following_num']=0
+            re_json['following_list'] = None
         #查询粉丝
         follow_rela1 = Follow.query.filter(Follow.following == user_id).all()
         if follow_rela1:
@@ -51,9 +60,12 @@ def index():
                     follower_user_info["follower_id"] = follower_user.id
 
                     follower_list.append(follower_user_info)
+            re_json['follower_num']=len(follower_list)
 
-        re_json['follower_list'] = follower_list
-
+            re_json['follower_list'] = follower_list
+        else:
+            re_json['follower_num'] = 0
+            re_json['follower_list'] = None
     #return jsonify(re_json)
     return render_template('index.html',re_data=re_json)
 
@@ -156,7 +168,8 @@ def setting():
 @app.route('/logout/',methods=['GET','POST'])
 def logout():
     session['user_id'] = None
-    return render_template('logout.html')
+    return redirect(url_for('index'))
+   # return render_template('logout.html')
 
 @app.route('/personal/',methods=['GET','POST'])
 @longin_required

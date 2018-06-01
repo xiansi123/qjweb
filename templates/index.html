@@ -25,7 +25,7 @@
             <li><a href="{{ url_for('suggestion') }}">前锦建议</a></li>
             <li><a href="{{ url_for('setting') }}">设置</a></li>
             <li><a href="{{ url_for('logout') }}">退出</a></li>
-            <li><a href="#">注册</a></li>
+            <li><a href="{{ url_for('register') }}">注册</a></li>
         </ul>
         </span>
         </div>
@@ -42,8 +42,8 @@
                             <div id="headBar">
                             <!--背景条-->
                             </div>
-                            <a href="personal.html" id="identify-headPic"><img id="headPic" src="images/bear.jpg"></a><br>
-                            <a id="identify-welcome" class="bold-font" href="personal.html">孟小峰</a>
+                            <a href="personal.html" id="identify-headPic"><img id="headPic" src="../static/images/bear.jpg"></a><br>
+                            <a id="identify-welcome" class="bold-font" href="personal.html">{{ re_data['username'] }}</a>
                             <h4>欢迎使用前锦</h4>
                         </div>
                         <div id="friends">
@@ -54,7 +54,7 @@
                                             <div id="following-container">
                                                 <button class="widget-route">
                                                     <span id="following-nums" class="small-font">
-                                                    28</span>
+                                                    {{ re_data['following_num'] }}</span>
                                                 </button>
                                                 <p class="bold-font small-font">我的关注</p>
                                             </div>
@@ -65,7 +65,7 @@
                                             <div id="followed-container">
                                                 <button class="widget-route">
                                                     <span id="followed-nums" class="small-font">
-                                                    28</span>
+                                                     {{ re_data['follower_num'] }}</span>
                                                 </button>
                                                 <p class="bold-font small-font">我的粉丝</p>
                                             </div>
@@ -101,23 +101,27 @@
                     <input type="text" name="new-msg-about"><br>
                     <p>*请输入时间:</p>
                     <input type="time" name="new-msg-time"><br>
-                    
+
+                    <div id="my-new-msg-btn">
+                    <input type="button" name="submit" id="my-new-msg-submit" value="提交">
+                    <input type="button" name="cancel" id="my-new-msg-cancel" value="取消">
+                    </div>
                     
                 </div>
                 <div class="friends-msg-card">
-                    <img src="images/ruanyifeng.png">
+                    <img src="../static/images/ruanyifeng.png">
                     <button class="friends-msg-btn">...</button>
                     <div class="friends-unfollow isHidden">
                         <p>取消关注</p>
                     </div>
                     <p class="friends-msg-name">{{ re_data["following_list"][0]["name"] }}</p>
-                    <p class="friends-msg-type">{{ re_data["following_list"][0]["name"] }}</p>
+                    <p class="friends-msg-type">{{ re_data["following_list"][0]["follower_id"] }}</p>
                     <br>
                     <p class="friends-msg-time">2018.5.24</p>
                 </div>
                 
                 <div class="friends-msg-card">
-                    <img src="images/bear.jpg">
+                    <img src="../static/images/bear.jpg">
                     <button class="friends-msg-btn">...</button>
                     <div class="friends-unfollow isHidden">
                         <p>取消关注</p>
@@ -125,7 +129,7 @@
                     <p class="friends-msg-name">{{ re_data["following_list"][1]["name"] }}</p>
                     <p class="friends-msg-type">{{ re_data["following_list"][1]["name"] }}</p>
                     <br>
-                    <p class="friends-msg-time">2018.5.23</p>
+                    <p class="friends-msg-time">../static/</p>
                 </div>
                 
             </div>
