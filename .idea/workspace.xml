@@ -3,18 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d84fc961-1f3e-46ef-a6a4-07a48cfc04e0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/myapp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/loginWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/loginWrapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/logout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/myGoal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/myGoal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/myPlan.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/myPlan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/setting.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/setting.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -86,8 +74,8 @@
       <file leaf-file-name="loginWrapper.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/loginWrapper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="75">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -222,8 +210,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="207" />
-    <option name="y" value="24" />
+    <option name="x" value="139" />
+    <option name="y" value="54" />
     <option name="width" value="1301" />
     <option name="height" value="721" />
   </component>
@@ -395,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527500571276</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="3.0">
+      <created>1527855531857</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1527855531857</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -408,16 +403,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="439" y="24" width="1301" height="721" extended-state="0" />
+    <frame x="532" y="280" width="1301" height="721" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32263514" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5008143" side_tool="true" weight="0.3277027" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.26101694" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49918568" weight="0.3277027" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.26101694" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49918568" visible="true" weight="0.32711864" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32578397" />
-      <window_info anchor="bottom" id="Terminal" order="13" weight="0.2668919" />
+      <window_info anchor="bottom" id="Terminal" order="13" weight="0.2661017" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24462152" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.11075697" />
@@ -817,8 +812,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/loginWrapper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="75">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
